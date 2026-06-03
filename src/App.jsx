@@ -95,19 +95,11 @@ export default function LuxuryBuilderWebsite() {
           <div className="flex items-center gap-4">
             <img
               src={logo}
-              alt="TDB Realtors"
+              alt="Model Construction"
               className="h-20 w-auto"
             />
 
-            <div>
-              <h1 className="text-2xl font-bold text-yellow-500">
-                TDB Realtors
-              </h1>
-
-              <p className="text-sm text-gray-400">
-                Your Trusted Real Estate Partner
-              </p>
-            </div>
+            
           </div>
 
           <div className="hidden md:flex gap-8 text-sm font-medium">
@@ -196,7 +188,7 @@ export default function LuxuryBuilderWebsite() {
             </h2>
 
             <p className="text-gray-300 leading-8 text-lg mb-6">
-              TDB Realtors is a premium real estate company delivering modern
+              Model Construction is a premium real estate company delivering modern
               residential and commercial properties with high-end architecture
               and superior lifestyle experiences.
             </p>
@@ -336,12 +328,12 @@ export default function LuxuryBuilderWebsite() {
 
               <p>
                 <span className="font-bold text-yellow-500">Phone:</span> +91
-                7020792933
+                9999999999
               </p>
 
               <p>
                 <span className="font-bold text-yellow-500">Email:</span>{' '}
-                tdbrealtors@gmail.com
+                xyz@gmail.com
               </p>
             </div>
 
@@ -423,7 +415,7 @@ export default function LuxuryBuilderWebsite() {
       {/* Footer */}
       <footer className="bg-black border-t border-yellow-700 py-8 text-center text-gray-400">
         <p>
-          © 2026 TDB Realtors. All Rights Reserved.
+          © 2026 Model Construction. All Rights Reserved.
         </p>
       </footer>
     </div>
