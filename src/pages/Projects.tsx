@@ -1,6 +1,7 @@
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
+import projectVideo from "../assets/videos/project.mp4";
 const projects = [
     {
         name: 'Golden Heights',
@@ -53,6 +54,46 @@ function Services() {
     return (
         <>
             <Navbar />
+            <section className="relative h-screen overflow-hidden">
+
+                <video
+                    autoPlay
+                    muted
+                    loop
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover"
+                >
+
+                    <source src={projectVideo} type="video/mp4" />
+
+                </video>
+
+                <div className="absolute inset-0 bg-black/70" />
+
+                <div className="relative z-10 h-full flex flex-col justify-center items-center text-center">
+
+                    <h1 className="text-7xl font-extrabold text-yellow-500">
+
+                        Our Projects
+
+                    </h1>
+
+                    <p className="text-gray-300 text-xl mt-6">
+
+                        Building Dreams Into Reality
+
+                    </p>
+
+                    <button className="mt-10 bg-yellow-500 px-10 py-4 rounded-full text-black font-bold hover:scale-110 transition">
+
+                        Explore Projects
+
+                    </button>
+
+                </div>
+
+            </section>
+
 
 
             <div className="bg-black min-h-screen text-white">
@@ -60,7 +101,7 @@ function Services() {
                 <div className="max-w-7xl mx-auto px-6">
 
                     <h1 className="text-5xl font-bold text-center text-yellow-500 mb-16">
-                        Our Projects
+                       **********************
                     </h1>
 
                     <div className="grid md:grid-cols-3 gap-10">
@@ -96,6 +137,7 @@ function Services() {
                 </div>
 
             </div>
+
 
 
             <Footer />

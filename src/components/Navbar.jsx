@@ -1,5 +1,9 @@
-import { Link } from "react-router-dom";
+
+import { Link, NavLink } from "react-router-dom";
 import logo from "../assets/logo.png";
+
+
+
 
 function Navbar() {
     return (
@@ -12,58 +16,127 @@ function Navbar() {
                             alt="Model Construction Logo"
                             className="h-20 w-auto"
                         />
-
-                        <div>
-                            <h2 className="text-yellow-500 font-bold">
-
-                            </h2>
-                        </div>
                     </Link>
                 </h1>
 
                 <div className="flex gap-8 items-center">
-                    <Link
+                    <NavLink
                         to="/"
                         className="font-bold text-lg hover:text-yellow-500 transition duration-300"
                     >
                         Home
-                    </Link>
+                    </NavLink>
 
-                    <Link
+                    <NavLink
                         to="/about"
                         className="font-bold text-lg hover:text-yellow-500 transition duration-300"
                     >
                         About
-                    </Link>
+                    </NavLink>
 
-                    <Link
-                        to="/services"
-                        className="font-bold text-lg hover:text-yellow-500 transition duration-300"
-                    >
-                        Services
-                    </Link>
+                    <div className="relative group">
 
-                    <Link
+                        {/* Services Menu */}
+                        <NavLink
+                            to="/services"
+                            className={({ isActive }) =>
+                                isActive
+                                    ? "text-yellow-500 font-bold text-lg"
+                                    : "text-white font-medium text-lg hover:text-yellow-500 transition"
+                            }
+                        >
+                            Services ▾
+                        </NavLink>
+
+                        {/* Dropdown */}
+                        <div
+                            className="
+      absolute
+      left-0
+      mt-3
+      w-80
+      bg-black
+      border
+      border-yellow-500
+      rounded-xl
+      shadow-2xl
+      opacity-0
+      invisible
+      group-hover:opacity-100
+      group-hover:visible
+      transition-all
+      duration-300
+      z-50
+    "
+                        >
+
+                            <Link
+                                to="/services#build"
+                                className="block px-5 py-3 hover:bg-yellow-500 hover:text-black transition"
+                            >
+                                🏗 Build
+                            </Link>
+
+                            <Link
+                                to="/services#design"
+                                className="block px-5 py-3 hover:bg-yellow-500 hover:text-black transition"
+                            >
+                                🎨 Design
+                            </Link>
+
+                            <Link
+                                to="/services#feasibility"
+                                className="block px-5 py-3 hover:bg-yellow-500 hover:text-black transition"
+                            >
+                                📋 Project Feasibility Study
+                            </Link>
+
+                            <Link
+                                to="/services#planning"
+                                className="block px-5 py-3 hover:bg-yellow-500 hover:text-black transition"
+                            >
+                                📅 Project Planning & Scheduling
+                            </Link>
+
+                            <Link
+                                to="/services#quantity"
+                                className="block px-5 py-3 hover:bg-yellow-500 hover:text-black transition"
+                            >
+                                📐 Quantity & Estimations
+                            </Link>
+
+                            <Link
+                                to="/services#procurement"
+                                className="block px-5 py-3 hover:bg-yellow-500 hover:text-black transition"
+                            >
+                                🛒 Procurement Management
+                            </Link>
+
+                        </div>
+
+                    </div>
+
+                    <NavLink
                         to="/projects"
                         className="font-bold text-lg hover:text-yellow-500 transition duration-300"
                     >
                         Projects
-                    </Link>
+                    </NavLink>
 
-                    <Link
+                    <NavLink
                         to="/clients"
                         className="font-bold text-lg hover:text-yellow-500 transition duration-300"
                     >
                         Clients
-                    </Link>
+                    </NavLink>
 
-
-                    <Link
+                    {/*
+                    <NavLink
                         to="/contact"
                         className="font-bold text-lg hover:text-yellow-500 transition duration-300"
                     >
                         Contact
-                    </Link>
+                    </NavLink> */}
 
 
 

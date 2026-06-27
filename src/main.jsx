@@ -8,6 +8,7 @@ import Login from "./Login";
 import Admin from './Admin'
 import About from "./pages/About"
 import Contact from "./pages/Contact"
+
 import './index.css'
 import {
   BrowserRouter,

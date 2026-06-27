@@ -1,107 +1,181 @@
-import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
+import {
+  FaHardHat,
+  FaDraftingCompass,
+  FaClipboardList,
+  FaCalculator,
+  FaTruckLoading,
+  FaBuilding,
+} from "react-icons/fa";
+
+import build from "../assets/services/build.jpg";
+import design from "../assets/services/design.jpg";
+import planning from "../assets/services/planning.jpg";
+import estimation from "../assets/services/estimation.jpg";
+import procurement from "../assets/services/procurement.jpg";
+import consultancy from "../assets/services/consultancy.jpg";
+
 const services = [
-    {
-        id: 1,
-        title: "BUILD",
-        description: [
-            "Construction Execution - Weekly site visits, site control and timeline tracking, maintaining work records and site reports, preparing weekly and monthly progress reports.",
-            "Interior Execution - Weekly site visits, site control, timeline tracking and supervision, work drawing reading and execution, coordination with contractors and consultants."
-        ]
-    },
-    {
-        id: 2,
-        title: "DESIGN",
-        description: [
-            "Interior Fitout & Design- 2D Interior floor plan details of fixtures and materials Commercial space designing Rsidential Space Designing 3D Interior Designing",
-            "ProjectPromotional Video Designing- Project Introduction Videos,Drone camera master shot, Marketing promotional videos from professional director and script writer."
-
-        ]
-    },
-    {
-        id: 3,
-        title: "PROJECT FEASIBLILTY STUDY",
-        description: [
-            "Analysing REquirement of client,cost benifit analysis. Area Survey, Max Constructability study, Project budget and risk analysis",
-            " an early-stage assessment conducted before major investments are made. It determines if a proposed project is technically possible, financially viable, and practically worthwhile."
-        ]
-    },
-    {
-        id: 4,
-        title: "PROJECT PLANNING AND SCHEDULING",
-        description: [
-            "Project Master Schedule & Micro planning of activities", " Contractor and Vendor Delivery wise Schedule", " Tracking Project timeline (Actual vs Planned)",
-        ]
-    },
-    {
-        id: 5,
-        title: "QUANTITY AND ESTIMATIONS",
-        description: [
-            "Prparing BOQ as per GFC Drawings", "Preliminary Estimation Details ", "Estimation of complete project", "Activitywise estimation",
-
-            "Master SummaryReport"
-        ]
-    },
-    {
-        id: 6,
-        title: "PROCUREMENT MANAGEMENT",
-        description: ["Taking Quotation and details specification from vendor", " Quotation Comparison and analysis", "Vendor Negotiation and finalization Issuing PO/WO ",
-        ]
-    },
-
+  {
+    title: "Construction",
+    image: build,
+    icon: <FaHardHat size={45} />,
+    description:
+      "Residential, Commercial and Industrial construction with premium quality and timely execution.",
+  },
+  {
+    title: "Architectural Design",
+    image: design,
+    icon: <FaDraftingCompass size={45} />,
+    description:
+      "Innovative architectural planning, 2D layouts, 3D elevations and interior concepts.",
+  },
+  {
+    title: "Project Planning",
+    image: planning,
+    icon: <FaClipboardList size={45} />,
+    description:
+      "Professional scheduling, execution planning and project management.",
+  },
+  {
+    title: "Quantity Estimation",
+    image: estimation,
+    icon: <FaCalculator size={45} />,
+    description:
+      "BOQ preparation, quantity estimation and accurate project costing.",
+  },
+  {
+    title: "Procurement Management",
+    image: procurement,
+    icon: <FaTruckLoading size={45} />,
+    description:
+      "Material sourcing, vendor management and quality procurement.",
+  },
+  {
+    title: "Construction Consultancy",
+    image: consultancy,
+    icon: <FaBuilding size={45} />,
+    description:
+      "Expert engineering consultancy for residential, commercial and industrial projects.",
+  },
 ];
-function Services() {
-    return (
-        <>
-            <Navbar />
-            
 
-            <div className="bg-black min-h-screen text-white">
-                <div className="max-w-7xl mx-auto px-6">
-                    
+export default function Services() {
+  return (
+    <>
+      <Navbar />
 
-                    {/* Services Content Here */}
-                    <div className="bg-black min-h-screen text-white">
-                        <div className="max-w-7xl mx-auto px-6">
+      {/* Hero Section */}
+      <section className="relative h-80 bg-black flex items-center justify-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-900 to-black opacity-90"></div>
 
-                            <h1 className="text-5xl font-bold text-center text-yellow-500 mb-6">
-                                Our Services
-                            </h1>
+        <div className="relative z-10 text-center">
+          <h1 className="text-5xl font-extrabold text-yellow-500">
+            Our Services
+          </h1>
 
-                            <p className="text-center text-gray-400 mb-16">
-                                Professional Construction Management &
-                                Consultancy Services
-                            </p>
+          <p className="mt-5 text-gray-300 text-lg">
+            Complete Construction & Consultancy Solutions
+          </p>
+        </div>
+      </section>
 
-                            <div className="grid md:grid-cols-3 gap-8">
+      {/* Services Cards */}
+      <section className="bg-zinc-950 py-20 px-6">
 
-                                {services.map((service, index) => (
-                                    <div
-                                        key={index}
-                                        className="bg-zinc-900 border border-yellow-700 rounded-3xl p-8"
-                                    >
-                                        <h3 className="text-2xl text-yellow-400 mb-4">
-                                            {service.title}
-                                        </h3>
+        <div className="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-10">
 
-                                        <p className="text-gray-300">
-                                            {service.description}
-                                        </p>
-                                    </div>
-                                ))}
+          {services.map((service, index) => (
 
-                            </div>
-                        </div>
-                    </div>
+            <div
+              key={index}
+              className="group rounded-3xl overflow-hidden shadow-xl bg-black border border-yellow-600 hover:shadow-yellow-500/40 transition duration-500 hover:-translate-y-3"
+            >
 
+              {/* Image */}
+              <div className="relative h-64 overflow-hidden">
+
+                <img
+                  src={service.image}
+                  alt={service.title}
+                  className="w-full h-full object-cover group-hover:scale-110 transition duration-700"
+                />
+
+                <div className="absolute inset-0 bg-black/50 group-hover:bg-black/30 transition"></div>
+
+              </div>
+
+              {/* Content */}
+              <div className="p-8">
+
+                <div className="text-yellow-500 mb-5">
+                  {service.icon}
                 </div>
+
+                <h2 className="text-2xl font-bold text-white mb-4">
+                  {service.title}
+                </h2>
+
+                <p className="text-gray-400 leading-7">
+                  {service.description}
+                </p>
+
+                <button
+                  className="mt-8 bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full hover:bg-yellow-400 transition"
+                >
+                  Learn More
+                </button>
+
+              </div>
+
             </div>
 
-            <Footer />
-        </>
-    );
-}
+          ))}
 
-export default Services;
+        </div>
+
+      </section>
+
+      {/* Why Choose Us */}
+      <section className="bg-black py-20">
+
+        <div className="max-w-6xl mx-auto text-center">
+
+          <h2 className="text-4xl font-bold text-yellow-500 mb-10">
+            Why Choose Model Construction?
+          </h2>
+
+          <div className="grid md:grid-cols-4 gap-8">
+
+            <div className="bg-zinc-900 rounded-2xl p-8">
+              <h3 className="text-4xl font-bold text-yellow-500">100+</h3>
+              <p className="text-gray-400 mt-3">Projects Completed</p>
+            </div>
+
+            <div className="bg-zinc-900 rounded-2xl p-8">
+              <h3 className="text-4xl font-bold text-yellow-500">50+</h3>
+              <p className="text-gray-400 mt-3">Happy Clients</p>
+            </div>
+
+            <div className="bg-zinc-900 rounded-2xl p-8">
+              <h3 className="text-4xl font-bold text-yellow-500">15+</h3>
+              <p className="text-gray-400 mt-3">Years Experience</p>
+            </div>
+
+            <div className="bg-zinc-900 rounded-2xl p-8">
+              <h3 className="text-4xl font-bold text-yellow-500">24×7</h3>
+              <p className="text-gray-400 mt-3">Customer Support</p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </section>
+
+      <Footer />
+    </>
+  );
+}
