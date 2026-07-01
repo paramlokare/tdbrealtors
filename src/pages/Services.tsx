@@ -16,69 +16,115 @@ import planning from "../assets/services/planning.jpg";
 import estimation from "../assets/services/estimation.jpg";
 import procurement from "../assets/services/procurement.jpg";
 import consultancy from "../assets/services/consultancy.jpg";
+import costmgmt from "../assets/services/costmgmt.jpg"
+import build_construction from "../assets/services/build_construction.jpg"
+import interior from "../assets/services/interior.avif"
+import servicesBg from "../assets/services/services-bg.jpg";
 
 const services = [
-  {
-    title: "Construction",
-    image: build,
-    icon: <FaHardHat size={45} />,
-    description:
-      "Residential, Commercial and Industrial construction with premium quality and timely execution.",
+   {
+      title: "Design",
+      image: build,
+      icon: <FaHardHat size={45} />,
+      description: (
+        <> 
+          1. Interior Fitout & Designing
+            2DInteriorFloorPlan
+            DetailsofFixturesandMaterial
+            CommercialSpaceDesigning
+          <br />
+          2. Project Promotional Video Designing
+          Drone Camera Master Shot
+
+
+
+        </>
+      )
+    },
+  
+  { title: "Manage-Project Feasibility Study",
+      image: design,
+      icon: <FaDraftingCompass size={45} />,
+      description:
+        "Analyzing Requirement of Client Cost Benefit analysis Area Survey, Max. Constructability study Project Budget and Risk Analysis"
+  
   },
   {
-    title: "Architectural Design",
-    image: design,
-    icon: <FaDraftingCompass size={45} />,
-    description:
-      "Innovative architectural planning, 2D layouts, 3D elevations and interior concepts.",
+    title: "Manage - Project Planningand Scheduling",
+      image: planning,
+      icon: <FaClipboardList size={45} />,
+      description:
+        "Project Master Schedule & Micro planning of activities Contractor and Vendor Delivery wise Schedule Tracking Project timeline (Actual vs Planned) Coordinating to streamline the schedule"
+      
   },
   {
-    title: "Project Planning",
-    image: planning,
-    icon: <FaClipboardList size={45} />,
-    description:
-      "Professional scheduling, execution planning and project management.",
+      title: "Manage - Quantity & Estimation",
+      image: estimation,
+      icon: <FaCalculator size={45} />,
+      description:
+        "Preparing BOQ as per GFC Drawings Preliminary Estimation Detail Estimation of complete project Activitywise estimation Master SummaryReport"
+
+
+   
+    
   },
   {
-    title: "Quantity Estimation",
-    image: estimation,
-    icon: <FaCalculator size={45} />,
-    description:
-      "BOQ preparation, quantity estimation and accurate project costing.",
+    title: "Manage - Procurement Management",
+      image: procurement,
+      icon: <FaTruckLoading size={45} />,
+      description:
+        "Taking Quotation and Detail specification from vendor Quotation Comparison and Analysis Vendor Negotiation and Finalization Issuing PO/WO and Annexure inline with PI"
+   
+    
+   
   },
   {
-    title: "Procurement Management",
-    image: procurement,
-    icon: <FaTruckLoading size={45} />,
-    description:
-      "Material sourcing, vendor management and quality procurement.",
+    title: "Manage - Quality Management",
+      image: consultancy,
+      icon: <FaBuilding size={45} />,
+      description:
+        "Ensuring bought out item specification as per acceptance criteria Inspection Checklist after project CompletionAudit complianceReport Bill Checking"
+
+    
+   
   },
   {
-    title: "Construction Consultancy",
-    image: consultancy,
-    icon: <FaBuilding size={45} />,
-    description:
-      "Expert engineering consultancy for residential, commercial and industrial projects.",
-  },
+      title: "Manage - Cost Management",
+      image: costmgmt,
+      icon: <FaClipboardList size={45} />,
+      description:
+        "Preparing Cash Flow report Material Consumption/Qty analysis Activity wise Cost Analysis Bill certification for payment approval Rate Analysis for Critical Item and Extra Item Identify the quantities exceeding the contract quantity Identification of items for advance purchase"
+    },
+    {
+      title: "Build -  Construction Execution",
+      image: build_construction,
+      icon: <FaTruckLoading size={45} />,
+      description:
+        "Weekly site visit ,Site Controland Timeline Tracking Maintaining work record and site report . Preparing Weekly and Monthly Progress Report"
+    },
+    {
+      title: "Build -   Interior Execution",
+      image: interior,
+      icon: <FaDraftingCompass size={45} />,
+      description:
+        "Weekly Site Visit ,SiteControl, Timeline Tracking and Supervision Work Drawing Reading and Execution Coordination with contractor and consultant for site related work"
+    },
 ];
 
 export default function Services() {
   return (
     <>
       <Navbar />
-
-      {/* Hero Section */}
-      <section className="relative h-80 bg-black flex items-center justify-center">
-        <div className="absolute inset-0 bg-gradient-to-r from-black via-zinc-900 to-black opacity-90"></div>
-
-        <div className="relative z-10 text-center">
-          <h1 className="text-5xl font-extrabold text-yellow-500">
+      <section
+        className="h-[280px] md:h-[350px] lg:h-[400px] bg-cover bg-center flex items-center justify-center"
+        style={{
+          backgroundImage: `url(${servicesBg})`,
+        }}
+      >
+        <div className="w-full h-full bg-black/55 flex items-center justify-center">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-white">
             Our Services
           </h1>
-
-          <p className="mt-5 text-gray-300 text-lg">
-            Complete Construction & Consultancy Solutions
-          </p>
         </div>
       </section>
 
@@ -122,11 +168,11 @@ export default function Services() {
                   {service.description}
                 </p>
 
-                <button
+                {/*<button
                   className="mt-8 bg-yellow-500 text-black font-semibold px-6 py-3 rounded-full hover:bg-yellow-400 transition"
                 >
                   Learn More
-                </button>
+                </button>*/}
 
               </div>
 

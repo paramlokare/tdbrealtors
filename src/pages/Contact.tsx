@@ -69,22 +69,23 @@ function Contact() {
             <div className="space-y-6 text-lg text-gray-300">
 
               <p>
-                <span className="font-bold text-yellow-500">
-                  Address :
+                <span className="font-bold text-yellow-500 ">
+                  Address:
                 </span>{" "}
-                Katraj Pune, Maharashtra 411036
+                C-407, Windsor County, Katraj, Pune,
+                Maharashtra - 411046
               </p>
 
               <p>
-                <span className="font-bold text-yellow-500">
-                  Phone :
+                <span className="font-bold text-yellow-500 ">
+                  Phone      :
                 </span>{" "}
-                +91 9922257909
+                +91 99222 57909
               </p>
 
               <p>
-                <span className="font-bold text-yellow-500">
-                  Email :
+                <span className="font-bold text-yellow-500 ">
+                  Email       :
                 </span>{" "}
                 jayantconstructions@gmail.com
               </p>

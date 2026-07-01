@@ -7,6 +7,7 @@ import {
   FaEnvelope,
   FaMapMarkerAlt,
 } from "react-icons/fa";
+import logo from '../assets/logo.png';
 
 function Footer() {
 
@@ -23,36 +24,53 @@ function Footer() {
 
         {/* Company Info */}
         <div>
-          <h2 className="text-2xl font-bold text-yellow-500 mb-4">
-            MODEL CONSTRUCTION
-          </h2>
+          <div className="flex flex-col items-start">
+            <img
+              src={logo}
+              alt="Model Construction Logo"
+              className="h-14 w-auto mb-5 drop-shadow-[0_0_15px_rgba(255,215,0,0.4)] hover:scale-105 transition-all duration-300"
+            />
 
-          <p className="text-gray-300 leading-8">
-            Building dreams with quality construction and innovative
-            engineering solutions. Your vision is our responsibility.
-          </p>
+            
 
+            <p className="text-yellow-400 text-sm tracking-widest ">
+              We are one of the most trusted construction PM Contractors , consultants and providing professional
+              expertise and high quality service to every project.
+              Experience of 40Lakh+ sqft of work
+              We are known to optimise cost,bringing
+              out best from team and delivering 
+              project ontime.
+
+
+            </p>
+          </div>
           <div className="flex space-x-4 mt-6">
             <a
-              href="#"
+              href="https://www.facebook.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center hover:bg-white hover:text-black transition"
             >
               <FaFacebookF />
             </a>
-
             <a
-              href="#"
+              href="https://www.linkedin.com/.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center hover:bg-white hover:text-black transition"
             >
               <FaLinkedinIn />
             </a>
-
             <a
-              href="#"
+              href="https://www.instagram.com/"
+              target="_blank"
+              rel="noopener noreferrer"
               className="w-10 h-10 rounded-full bg-yellow-500 flex items-center justify-center hover:bg-white hover:text-black transition"
             >
               <FaInstagram />
             </a>
+
+
           </div>
         </div>
 
@@ -67,7 +85,7 @@ function Footer() {
             <li><a href="/about" className="hover:text-yellow-500">About Us</a></li>
             <li><a href="/services" className="hover:text-yellow-500">Services</a></li>
             <li><a href="/projects" className="hover:text-yellow-500">Projects</a></li>
-            <li><a href="/gallery" className="hover:text-yellow-500">Gallery</a></li>
+
             <li><a href="/contact" className="hover:text-yellow-500">Contact</a></li>
           </ul>
         </div>
@@ -99,15 +117,14 @@ function Footer() {
             <div className="flex">
               <FaMapMarkerAlt className="text-yellow-500 mt-1 mr-3" />
               <p>
-                Katraj, Pune,
-                <br />
-                Maharashtra 411036
+                C-407,Windsor County, Katraj, Pune,
+                Maharashtra - 411046
               </p>
             </div>
 
             <div className="flex items-center">
               <FaPhoneAlt className="text-yellow-500 mr-3" />
-              <p>+91 9922257909</p>
+              <p>+91 99222 57909</p>
             </div>
 
             <div className="flex items-center">
@@ -125,14 +142,14 @@ function Footer() {
         <p>© 2026 Model Construction & Consultancy. All Rights Reserved.</p>
 
         <p className="mt-2">
-          Developed by{" "}
+          Designed & Developed by{" "}
           <a
             href="https://www.vqube.in"
             target="_blank"
             rel="noopener noreferrer"
             className="text-yellow-500 hover:text-yellow-400 underline"
           >
-            VQUBE Software Solutions
+            VQUBE Software & Data Solutions
           </a>
         </p>
       </div>

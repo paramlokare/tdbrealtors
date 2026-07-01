@@ -1,94 +1,107 @@
-const express = require('express');
-const cors = require('cors');
-const db = require('./db');
-const path = require('path');
-const app = express();
-const express = require("express");
-const cors = require("cors");
-const path = require("path");
-const db = require("./db");
+import express from "express";
+import cors from "cors";
+import nodemailer from "nodemailer";
+import dotenv from "dotenv";
+
+dotenv.config();
+
 const app = express();
 
 app.use(cors());
 app.use(express.json());
 
-app.use(cors());
-app.use(express.json());
+const transporter = nodemailer.createTransport({
+  service: "gmail",
+  auth: {
+    user: process.env.EMAIL_USER,
+    pass: process.env.EMAIL_PASS,
+  },
+});
 
-app.post('/api/enquiry', (req, res) => {
-  console.log('Received enquiry:', req.body);
+app.get("/", (req, res) => {
+  res.send("Backend is running");
+});
 
-
-  app.use(express.static(path.join(__dirname, '../dist')));
-
-  app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, '../dist/index.html'));
+app.get("/api/test", (req, res) => {
+  res.json({
+    success: true,
+    message: "API Working"
   });
-
+});
+app.post("/api/enquiry", async (req, res) => {
 
   const { name, email, phone, message } = req.body;
 
+  try {
 
-  db.query(
-    'INSERT INTO enquiries(name,email,phone,message) VALUES(?,?,?,?)',
-    [name, email, phone, message],
-    (err, result) => {
-      if (err) {
-        console.log('DB Error:', err);
-        return res.status(500).json({
-          success: false,
-          error: err.message
-        });
-      }
+    // Email to you
+    await transporter.sendMail({
 
-      console.log('Inserted ID:', result.insertId);
+      from: process.env.EMAIL_USER,
 
-      res.json({
-        success: true,
-        message: 'Enquiry submitted successfully'
-      });
-    }
-  );
+      to: process.env.EMAIL_USER,
+
+      subject: "🏗 New Construction Enquiry",
+
+      html: `
+                <h2>New Enquiry Received</h2>
+
+                <p><strong>Name:</strong> ${name}</p>
+
+                <p><strong>Email:</strong> ${email}</p>
+
+                <p><strong>Phone:</strong> ${phone}</p>
+
+                <p><strong>Message:</strong></p>
+
+                <p>${message}</p>
+            `,
+    });
+
+    // Auto reply to customer
+
+    await transporter.sendMail({
+
+      from: process.env.EMAIL_USER,
+
+      to: email,
+
+      subject: "Thank You for Contacting Model Construction",
+
+      html: `
+                <h2>Thank You, ${name}</h2>
+
+                <p>
+                We have received your enquiry successfully.
+                </p>
+
+                <p>
+                Our team will contact you shortly.
+                </p>
+
+                <br>
+
+                <strong>Model Construction</strong>
+            `,
+    });
+
+    res.status(200).json({
+      success: true,
+      message: "Enquiry Sent Successfully",
+    });
+
+  } catch (err) {
+
+    console.log(err);
+
+    res.status(500).json({
+      success: false,
+      message: "Email Failed",
+    });
+  }
+
 });
-app.get('/', (req, res) => {
-  res.send('Backend Working');
-});
-app.get('/api/enquiries', (req, res) => {
-  db.query(
-    'SELECT * FROM enquiries',
-    (err, results) => {
-      if (err) {
-        console.log(err);
-        return res.status(500).json(err);
-      }
 
-      res.json(results);
-    }
-  );
-});
-app.delete('/api/enquiries/:id', (req, res) => {
-  db.query(
-    'DELETE FROM enquiries WHERE id = ?',
-    [req.params.id],
-    (err) => {
-      if (err) return res.status(500).json(err);
-
-      res.json({ success: true });
-    }
-  );
-});
-app.use(
-  express.static(
-    path.join(__dirname, "../dist")
-  )
-);
-
-app.get("*", (req, res) => {
-  res.sendFile(
-    path.join(__dirname, "../dist/index.html")
-  );
-});
-
-app.listen(5000, () => {
-  console.log('Server running on port 5000');
+app.listen(process.env.PORT, () => {
+  console.log(`Server Running on ${process.env.PORT}`);
 });

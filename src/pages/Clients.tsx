@@ -3,9 +3,17 @@ import { Link } from "react-router-dom";
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-import client1 from "../assets/client1.jpg";
-import client2 from "../assets/client2.jpg";
-import client3 from "../assets/client3.jpg";
+import client1 from "../assets/clients/client1.png";
+import client2 from "../assets/clients/client2.jpeg";
+import client3 from "../assets/clients/client3.jpg";
+import client4 from "../assets/clients/client4.png";
+import client5 from "../assets/clients/client5.jpg";
+import client6 from "../assets/clients/client6.png";
+import client7 from "../assets/clients/client7.jpg";
+import client8 from "../assets/clients/client8.jpg";
+import client9 from "../assets/clients/client9.jpg";
+import client10 from "../assets/clients/client10.png";
+
 
 import clientVideo from "../assets/videos/client.mp4";
 
@@ -22,19 +30,26 @@ import {
     FaArrowRight,
 } from "react-icons/fa";
 
+
+
+
 const clients = [
-    { name: "ABC Builders", image: client1 },
-    { name: "XYZ Developers", image: client2 },
-    { name: "Prime Realty", image: client3 },
+    client1,
+    client2,
+    client3,
+    client4,
+    client5,
+    client6,
+    client7,
+    client8,
+    client9,
+    client10,
 ];
 
-
-
-function Services() {
+export default function Clients() {
     return (
         <>
             <Navbar />
-
             <section className="relative h-screen overflow-hidden">
 
                 <video
@@ -121,47 +136,36 @@ function Services() {
                 </div>
 
             </section>
-            < section id="clients" className="py-24 px-6 bg-black" >
-                <div className="max-w-7xl mx-auto text-center">
-                    <h2 className="text-4xl font-bold text-yellow-500 mb-4">
-                        Our Clients
+            
+
+            <section className="py-20 bg-gray-100">
+                <div className="max-w-7xl mx-auto px-6">
+                    <h2 className="text-4xl font-bold text-center mb-4">
+                        Trusted By Our Clients
                     </h2>
 
-                    <p className="text-gray-400 mb-16">
-                        Trusted by leading businesses and homeowners.
+                    <p className="text-center text-gray-600 mb-14">
+                        We are proud to work with leading companies and organizations.
                     </p>
 
-                    <div className="grid md:grid-cols-3 gap-8">
-                        {clients.map((client, index) => (
+                    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-8 items-center">
+                        {clients.map((logo, index) => (
                             <div
                                 key={index}
-                                className="relative h-64 rounded-2xl overflow-hidden border border-yellow-700 group"
+                                className="bg-white rounded-xl shadow-md p-6 flex justify-center items-center hover:shadow-xl hover:scale-105 transition-all duration-300"
                             >
-                                {/* Background Image */}
                                 <img
-                                    src={client.image}
-                                    alt={client.name}
-                                    className="absolute inset-0 w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                                    src={logo}
+                                    alt={`Client ${index + 1}`}
+                                    className="h-16 w-full object-contain grayscale hover:grayscale-0 transition duration-300"
                                 />
-
-                                {/* Dark Overlay */}
-                                <div className="absolute inset-0 bg-black/60 group-hover:bg-black/40 transition duration-300"></div>
-
-                                {/* Client Name */}
-                                <div className="relative z-10 flex items-center justify-center h-full">
-                                    <h3 className="text-white text-2xl font-bold">
-                                        {client.name}
-                                    </h3>
-                                </div>
                             </div>
                         ))}
                     </div>
                 </div>
-            </section >
+            </section>
 
             <Footer />
         </>
     );
 }
-
-export default Services;
